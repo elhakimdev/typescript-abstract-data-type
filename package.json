@@ -1,7 +1,7 @@
 {
-  "name": "dsa-typescript",
+  "name": "typescript-adt",
   "version": "0.0.2",
-  "description": "",
+  "description": "Experimental abstraction of data structure utils for javascript",
   "repository": "https://github.com/elhakimdev/typescript-abstract-data-type",
   "license": "MIT",
   "sideEffects": false,
