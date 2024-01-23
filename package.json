@@ -2,7 +2,10 @@
   "name": "typescript-adt",
   "version": "0.0.3",
   "description": "Experimental abstraction of data structure utils for javascript",
-  "repository": "https://github.com/elhakimdev/typescript-abstract-data-type",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elhakimdev/typescript-abstract-data-type"
+  },
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
