@@ -28,13 +28,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - run: corepack enable
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      # - name: Build with Jekyll
+      #   uses: actions/jekyll-build-pages@v1
+      #   with:
+      #     source: ./
+      #     destination: ./_site
+      # - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          source: ./
-          destination: ./_site
+          node-version: 18
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm ci # or pnpm install / yarn install / bun install
+      - name: Build with VitePress
+        run: |
+          pnpm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
+          touch docs/.vitepress/dist/.nojekyll
+      # - run: pnpm install
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
