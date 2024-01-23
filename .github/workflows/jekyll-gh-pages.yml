@@ -42,7 +42,7 @@ jobs:
           node-version: 18
           cache: "pnpm"
       - name: Install dependencies
-        run: pnpm ci # or pnpm install / yarn install / bun install
+        run: pnpm install
       - name: Build with VitePress
         run: |
           pnpm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
