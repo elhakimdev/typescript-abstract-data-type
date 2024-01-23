@@ -1,6 +1,6 @@
 {
   "name": "@elhakimdev/typescript-adt",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Experimental abstraction of data structure utils for javascript",
   "repository": {
     "type": "git",
