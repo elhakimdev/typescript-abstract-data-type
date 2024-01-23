@@ -46,9 +46,9 @@ export interface AbstractList<List> extends AbstractIterator<List> {
    *  name: string;
    *  age: number;
    * }
-   * 
+   *
    * const personLists = new List<Person>();
-   * 
+   *
    * personLists.appends([
    *   {
    *     name: "hakim1",
@@ -59,7 +59,7 @@ export interface AbstractList<List> extends AbstractIterator<List> {
    *     age: 10,
    *   },
    * ]);
-   * 
+   *
    * personLists.getElement() // { name: "hakim1", age: 10 }
    *
    * ```
