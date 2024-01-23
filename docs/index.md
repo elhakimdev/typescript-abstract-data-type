@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Typescript-ADT"
-  text: "Experimental abstraction of data structure utils for javascript (browsser/nodejs)"
+  name: "Typescript - ADT"
+  text: "Experimental abstraction of data structure utils for javascript"
   tagline: My great project tagline
   actions:
     - theme: brand

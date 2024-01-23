@@ -32,16 +32,18 @@
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
     "test:types": "tsc --noEmit --skipLibCheck",
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
+    "docs:generate": "documentation build src/** -f md --github -o ./docs/@api/",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
     "@vitest/coverage-v8": "^1.1.0",
     "@vitest/ui": "^1.2.1",
     "changelogen": "^0.5.5",
+    "documentation": "^14.0.2",
     "eslint": "^8.56.0",
     "eslint-config-unjs": "^0.2.1",
     "jiti": "^1.21.0",

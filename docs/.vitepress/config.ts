@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Typescript-ADT",
-  description: "Experimental abstraction of data structure utils for javascript (browsser/nodejs)",
+  title: "Typescript - ADT",
+  description: "Experimental abstraction of data structure utils for javascript",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
