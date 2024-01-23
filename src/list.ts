@@ -58,22 +58,22 @@ export interface AbstractList<List> {
    * @returns List
    */
   getElement: () => List;
-  
+
   /**
    * Inserting an Element into a List
-   * 
+   *
    * @public
    * @param {(List extends any ? List : never)} element The element being inserted.
    * @param {(List extends any ? List : never)?} after The element that will be using to reference position to inserting a new element (optional).
    * @returns List | boolean | undefined
-   * 
-   * @example 
+   *
+   * @example
    * ```
    * interface Person {
-   *  name: string, 
+   *  name: string,
    *  age: number
    * }
-   * 
+   *
    * const personLists = new List<Partial<Person>>();
    * personLists.appends([
    *   {
@@ -84,7 +84,7 @@ export interface AbstractList<List> {
    *     name: "hanan",
    *     age: 10,
    *   },
-   * ]); 
+   * ]);
    * personLists.insert({
    *   name: "insert",
    *   age: 20,
