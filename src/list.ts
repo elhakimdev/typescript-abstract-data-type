@@ -55,10 +55,42 @@ export interface AbstractList<List> {
    *
    * @public
    * @property
-   * @type {() => List}
+   * @returns List
    */
   getElement: () => List;
-
+  
+  /**
+   * Inserting an Element into a List
+   * 
+   * @public
+   * @param {(List extends any ? List : never)} element The element being inserted.
+   * @param {(List extends any ? List : never)?} after The element that will be using to reference position to inserting a new element (optional).
+   * @returns List | boolean | undefined
+   * 
+   * @example 
+   * ```
+   * interface Person {
+   *  name: string, 
+   *  age: number
+   * }
+   * 
+   * const personLists = new List<Partial<Person>>();
+   * personLists.appends([
+   *   {
+   *     name: "hakim1",
+   *     age: 10,
+   *   },
+   *   {
+   *     name: "hanan",
+   *     age: 10,
+   *   },
+   * ]); 
+   * personLists.insert({
+   *   name: "insert",
+   *   age: 20,
+   * });
+   * ```
+   */
   insert: (
     element: List extends any ? List : never,
     after?: List extends any ? List : never,
@@ -91,7 +123,7 @@ export interface AbstractList<List> {
    *
    * @public
    * @method
-   * @param {(value: List, index: number, obj: List[]) => unknown} predicate
+   * @param {(value: List, index: number, obj: List[]) => unknown} predicate The predicate function that will compute to find the matches element in givent args
    * @param {?*} [thisArg]
    * @returns {(List | undefined)}
    */
@@ -137,6 +169,9 @@ export class List<T> implements AbstractList<T extends any ? T : never> {
     return this.context[this.position];
   }
 
+  /**
+   * @inheritdoc
+   */
   public insert(
     element: (T extends any ? T : never) extends any
       ? T extends any
@@ -153,9 +188,9 @@ export class List<T> implements AbstractList<T extends any ? T : never> {
   ): boolean | (T extends any ? T : never) | undefined {
     // if ``after`` argument given, doing some computation befoere inserting.
     if (after) {
-      const foundAfter = this.find((el) => this.isEquals(el, after as T));
-      const afterId = this._context.indexOf(foundAfter as T);
-      this.context.splice(afterId + 1, 0, element);
+      const afterTarget = this.find((el) => this.isEquals(el, after as T));
+      const afterInsertPos = this._context.indexOf(afterTarget as T);
+      this.context.splice(afterInsertPos + 1, 0, element);
       ++this.size;
       ++this.length;
       return true;
