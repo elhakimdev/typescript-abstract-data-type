@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/typescript-abstract-data-type/",
   title: "Typescript - ADT",
   description: "Experimental abstraction of data structure utils for javascript",
   themeConfig: {
