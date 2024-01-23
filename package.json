@@ -31,7 +31,11 @@
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
-    "test:types": "tsc --noEmit --skipLibCheck"
+    "test:types": "tsc --noEmit --skipLibCheck",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:serve": "vitepress serve docs",
+    "docs:preview": "vitepress preview"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
@@ -44,7 +48,9 @@
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "vitest": "^1.1.0"
+    "vitepress": "1.0.0-rc.40",
+    "vitest": "^1.1.0",
+    "vue": "^3.4.15"
   },
   "packageManager": "pnpm@8.12.1"
 }
