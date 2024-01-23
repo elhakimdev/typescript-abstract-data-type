@@ -56,11 +56,11 @@ export interface AbstractList<List> {
    * @public
    * @property
    * @returns List
-   * 
+   *
    * @example
    * ```
-   * 
-   * 
+   *
+   *
    * ```
    */
   getElement: () => List;
