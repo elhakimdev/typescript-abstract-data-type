@@ -1,5 +1,5 @@
 {
-  "name": "typescript-adt",
+  "name": "@elhakimdev/typescript-adt",
   "version": "0.0.3",
   "description": "Experimental abstraction of data structure utils for javascript",
   "repository": {
