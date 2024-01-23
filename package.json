@@ -2,7 +2,7 @@
   "name": "dsa-typescript",
   "version": "0.0.1",
   "description": "",
-  "repository": "unjs/packageName",
+  "repository": "https://github.com/elhakimdev/typescript-abstract-data-type",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
