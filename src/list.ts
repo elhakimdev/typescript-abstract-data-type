@@ -151,6 +151,7 @@ export class List<T> implements AbstractList<T extends any ? T : never> {
           : never)
       | undefined,
   ): boolean | (T extends any ? T : never) | undefined {
+    // if ``after`` argument given, doing some computation befoere inserting.
     if (after) {
       const foundAfter = this.find((el) => this.isEquals(el, after as T));
       const afterId = this._context.indexOf(foundAfter as T);
@@ -160,9 +161,8 @@ export class List<T> implements AbstractList<T extends any ? T : never> {
       return true;
     }
 
-    // // if after element is not pases otherwise append them at the last
+    // other wise just append that element at the end of list and check again that record is found then return as booleans
     this.append(element);
-    // // check again that record is fond and return as booleans
     const aftterInsert = this.find((e) => this.isEquals(e, element));
     return !!aftterInsert;
   }
