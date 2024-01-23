@@ -50,6 +50,8 @@ jobs:
       # - run: pnpm install
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        env:
+          INPUT_PATH: "/docs/dist"
 
   # Deployment job
   deploy:
