@@ -9,7 +9,7 @@ export interface AbstractIterator<T> extends Iterable<T> {
    * @type {() => this}
    */
   first: () => this;
-  
+
   /**
    * Sets current position to last element of list
    * @date 1/23/2024 - 7:19:25 PM
@@ -17,7 +17,7 @@ export interface AbstractIterator<T> extends Iterable<T> {
    * @type {() => this}
    */
   last: () => this;
-  
+
   /**
    * Moves current position back one element
    * @date 1/23/2024 - 7:20:09 PM
@@ -25,7 +25,7 @@ export interface AbstractIterator<T> extends Iterable<T> {
    * @type {() => this}
    */
   previous: () => this;
-  
+
   /**
    * Moves current position forward one element
    * @date 1/23/2024 - 7:20:25 PM
@@ -33,7 +33,7 @@ export interface AbstractIterator<T> extends Iterable<T> {
    * @type {() => this}
    */
   next: () => this;
-  
+
   /**
    * Returns the current position in list
    * @date 1/23/2024 - 7:20:39 PM
@@ -41,7 +41,7 @@ export interface AbstractIterator<T> extends Iterable<T> {
    * @type {() => number}
    */
   current: () => number;
-  
+
   /**
    * Moves the current position to specified position
    * @date 1/23/2024 - 7:21:14 PM
@@ -63,31 +63,31 @@ export class AbstractListIterator<List> implements AbstractIterator<List> {
     return this;
   }
 
-  public next(): this{
+  public next(): this {
     // this.position
-    if(this.position < this.length -1){
-      ++this.position
+    if (this.position < this.length - 1) {
+      ++this.position;
     }
     return this;
   }
 
-  public previous(): this{
-    if(this.position > 0){
+  public previous(): this {
+    if (this.position > 0) {
       --this.position;
     }
     return this;
   }
 
-  public current () {
+  public current() {
     return this.position;
   }
 
-  public last(): this{
+  public last(): this {
     this.position = this.length - 1;
     return this;
   }
 
-  public moveTo  (position: number): this {
+  public moveTo(position: number): this {
     this.position = position - 1;
     return this;
   }

@@ -3,7 +3,7 @@
 import { AbstractIterator, AbstractListIterator } from "./list-iterator";
 
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-export interface AbstractList<List> extends AbstractIterator<List>{
+export interface AbstractList<List> extends AbstractIterator<List> {
   /**
    * Determine Number of elements in list
    * @date 1/23/2024 - 12:53:11 PM
@@ -46,7 +46,7 @@ export interface AbstractList<List> extends AbstractIterator<List>{
    *
    * ```
    */
-  getElement: () => List|undefined;
+  getElement: () => List | undefined;
 
   /**
    * Inserting an Element into a List
@@ -135,17 +135,17 @@ export interface AbstractList<List> extends AbstractIterator<List>{
 export class List<T> extends AbstractListIterator<T> {
   public size: number = 0;
   private _context: Array<T> = [];
-  
-  public contains (element: T extends any ? T : never) : boolean {
-    for(let i = 0; i < this.length; ++i){
-      if(this.context[i] === element){
+
+  public contains(element: T extends any ? T : never): boolean {
+    for (let i = 0; i < this.length; ++i) {
+      if (this.context[i] === element) {
         return true;
       }
     }
     return false;
   }
 
-  public clear() : void {
+  public clear(): void {
     this._context = [];
     this.size = this.position = this.length = 0;
   }

@@ -189,13 +189,13 @@ describe("List", () => {
         personLists.previous();
         expect(personLists.getElement()).toStrictEqual({
           name: "person2",
-          age: 20
-        })
+          age: 20,
+        });
         personLists.previous();
         expect(personLists.getElement()).toStrictEqual({
           name: "person1",
-          age: 10
-        })
+          age: 10,
+        });
       });
 
       it("call ``moveTo`` any ways should return correct element for that position", () => {
@@ -218,10 +218,10 @@ describe("List", () => {
         personLists.moveTo(3);
         expect(personLists.getElement()).toStrictEqual({
           name: "person3",
-          age: 30
-        })
+          age: 30,
+        });
         expect(personLists.current()).toStrictEqual(personLists.position);
-      })
+      });
     });
     describe("Utils Methods Call", () => {
       it("Call ``toString()`` should can return string represent the list", () => {
