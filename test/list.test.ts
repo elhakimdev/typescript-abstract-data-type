@@ -1,8 +1,8 @@
 import { expect, it, describe } from "vitest";
 import { List } from "../src";
 export interface Person {
-  name: string,
-  age: number,
+  name: string;
+  age: number;
 }
 describe("List", () => {
   describe("List constructor", () => {
@@ -16,12 +16,12 @@ describe("List", () => {
           "position": 0,
           "size": 0,
         }
-      `)
+      `);
       expect(stringList.size).toStrictEqual(0);
       expect(stringList.length).toStrictEqual(0);
       expect(stringList.position).toStrictEqual(0);
     });
-  })
+  });
   describe("List method calll", () => {
     it("Should can be append any element and computed the properties", () => {
       const data = new List<string>();
@@ -32,7 +32,7 @@ describe("List", () => {
       persons.append({
         name: "hakim",
         age: 20,
-      })
+      });
       persons.find((person) => person.name === "hakim");
     });
     it("Should can be append multiple elements", () => {
@@ -41,37 +41,39 @@ describe("List", () => {
         {
           name: "Hakim",
           age: 10,
-        }, 
+        },
         {
           name: "Hanam",
-          age: 20
-        }
+          age: 20,
+        },
       ];
       persons.appends(personsdata);
 
       expect(persons.size).toStrictEqual(2);
     });
     it("Should can be remove any givens element and return booleans, annd decrementing their size aautomatically", () => {
-      const personList  = new List<Partial<Person>>();
+      const personList = new List<Partial<Person>>();
       personList.append({
         name: "hakim",
-        age: 10
+        age: 10,
       });
       expect(personList.size).toStrictEqual(1);
       expect(personList.remove({ name: "hakim", age: 10 })).toStrictEqual(true);
       expect(personList.size).toStrictEqual(0);
-      expect(personList.remove({ name: "hakim", age: 10 })).toStrictEqual(false);
-      
+      expect(personList.remove({ name: "hakim", age: 10 })).toStrictEqual(
+        false,
+      );
+
       personList.append({
         name: "hanan",
-        age: 20
-      })
+        age: 20,
+      });
       expect(personList.size).toStrictEqual(1);
       expect(personList.length).toStrictEqual(1);
       personList.append({
         name: "hasan",
-        age: 20
-      })
+        age: 20,
+      });
       expect(personList.length).toStrictEqual(2);
     });
 
@@ -80,43 +82,46 @@ describe("List", () => {
         const personLists = new List<Partial<Person>>();
         personLists.appends([
           {
-            name: "hakim1", 
-            age: 10
+            name: "hakim1",
+            age: 10,
           },
           {
-            name: "hanan", 
-            age: 10
-          }
-        ])
+            name: "hanan",
+            age: 10,
+          },
+        ]);
 
-        personLists.insert({
-          name: "insert",
-          age: 20
-        }, {
-          name: "hakim1",
-          age: 10
-        })
+        personLists.insert(
+          {
+            name: "insert",
+            age: 20,
+          },
+          {
+            name: "hakim1",
+            age: 10,
+          },
+        );
 
         console.log(personLists);
-      })
+      });
       it("should can be insert element at correct position without passing ```after``` argument", () => {
         const personLists = new List<Partial<Person>>();
         personLists.appends([
           {
-            name: "hakim1", 
-            age: 10
+            name: "hakim1",
+            age: 10,
           },
           {
-            name: "hanan", 
-            age: 10
-          }
-        ])
-  
+            name: "hanan",
+            age: 10,
+          },
+        ]);
+
         personLists.insert({
           name: "insert",
-          age: 20
+          age: 20,
         });
-      })
-    })
+      });
+    });
   });
 });
