@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+import { AbstractIterator, AbstractListIterator } from "./list-iterator";
+
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-export interface AbstractList<List> {
+export interface AbstractList<List> extends AbstractIterator<List>{
   /**
    * Determine Number of elements in list
    * @date 1/23/2024 - 12:53:11 PM
@@ -10,26 +13,6 @@ export interface AbstractList<List> {
    * @type {number}
    */
   size: number;
-
-  /**
-   * Determine Current position in list.
-   * @date 1/23/2024 - 12:54:00 PM
-   *
-   * @public
-   * @property
-   * @type {number}
-   */
-  position: number;
-
-  /**
-   * Determine a properties that Returns the number of elements in list
-   * @date 1/23/2024 - 12:54:36 PM
-   *
-   * @public
-   * @property
-   * @type {number}
-   */
-  length: number;
 
   /**
    * Clears all elements from list
@@ -63,7 +46,7 @@ export interface AbstractList<List> {
    *
    * ```
    */
-  getElement: () => List;
+  getElement: () => List|undefined;
 
   /**
    * Inserting an Element into a List
@@ -146,27 +129,23 @@ export interface AbstractList<List> {
    */
   remove: (element: List) => boolean;
 
-  // front (function) // Sets current position to first element of list
-  // front: Function
-  // end (function) // Sets current position to last element of list
-  // end: Function;
-  // prev (function) // Moves current position back one element
-  // previous: Function;
-  // next (function) // Moves current position forward one element
-  // next: Function;
-  // currPos (function) // Returns the current position in list
-  // current: Function;
-  // moveTo (function) // Moves the current position to specified position
-  // moveTo: Function;
+  contains: (element: List) => boolean;
 }
 
-export class List<T> implements AbstractList<T extends any ? T : never> {
+export class List<T> extends AbstractListIterator<T> {
   public size: number = 0;
-  public position: number = 0;
-  public length = 0;
   private _context: Array<T> = [];
+  
+  public contains (element: T extends any ? T : never) : boolean {
+    for(let i = 0; i < this.length; ++i){
+      if(this.context[i] === element){
+        return true;
+      }
+    }
+    return false;
+  }
 
-  public clear() {
+  public clear() : void {
     this._context = [];
     this.size = this.position = this.length = 0;
   }

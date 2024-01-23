@@ -141,7 +141,7 @@ describe("List", () => {
       });
     });
     describe("Iteration Methods Call", () => {
-      it("call `getEleemnt()`` Can be return a correct element for currennt position", () => {
+      it("call `getElement()`` Can be return a correct element for currennt position", () => {
         const personLists = new List<Person>();
 
         personLists.append({
@@ -163,6 +163,65 @@ describe("List", () => {
           age: 20,
         });
       });
+
+      it("call ``next()`` and ``previoius`` should return a correct element for current position", () => {
+        const personLists = new List<Person>();
+
+        personLists.append({
+          name: "person1",
+          age: 10,
+        });
+        personLists.append({
+          name: "person2",
+          age: 20,
+        });
+        personLists.append({
+          name: "person3",
+          age: 30,
+        });
+
+        expect(personLists.size).toStrictEqual(3);
+        personLists.next().next();
+        expect(personLists.getElement()).toStrictEqual({
+          name: "person3",
+          age: 30,
+        });
+        personLists.previous();
+        expect(personLists.getElement()).toStrictEqual({
+          name: "person2",
+          age: 20
+        })
+        personLists.previous();
+        expect(personLists.getElement()).toStrictEqual({
+          name: "person1",
+          age: 10
+        })
+      });
+
+      it("call ``moveTo`` any ways should return correct element for that position", () => {
+        const personLists = new List<Person>();
+
+        personLists.append({
+          name: "person1",
+          age: 10,
+        });
+        personLists.append({
+          name: "person2",
+          age: 20,
+        });
+        personLists.append({
+          name: "person3",
+          age: 30,
+        });
+
+        console.log(personLists.position);
+        personLists.moveTo(3);
+        expect(personLists.getElement()).toStrictEqual({
+          name: "person3",
+          age: 30
+        })
+        expect(personLists.current()).toStrictEqual(personLists.position);
+      })
     });
     describe("Utils Methods Call", () => {
       it("Call ``toString()`` should can return string represent the list", () => {
