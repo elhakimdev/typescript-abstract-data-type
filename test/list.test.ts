@@ -28,7 +28,7 @@ describe("List", () => {
         const data = new List<string>();
         data.append("name");
         data.append("value");
-  
+
         const persons = new List<Person>();
         persons.append({
           name: "hakim",
@@ -49,7 +49,7 @@ describe("List", () => {
           },
         ];
         persons.appends(personsdata);
-  
+
         expect(persons.size).toStrictEqual(2);
       });
       it("call ``remove()`` Should can be remove any givens element and return booleans, annd decrementing their size aautomatically", () => {
@@ -59,12 +59,14 @@ describe("List", () => {
           age: 10,
         });
         expect(personList.size).toStrictEqual(1);
-        expect(personList.remove({ name: "hakim", age: 10 })).toStrictEqual(true);
+        expect(personList.remove({ name: "hakim", age: 10 })).toStrictEqual(
+          true,
+        );
         expect(personList.size).toStrictEqual(0);
         expect(personList.remove({ name: "hakim", age: 10 })).toStrictEqual(
           false,
         );
-  
+
         personList.append({
           name: "hanan",
           age: 20,
@@ -103,7 +105,7 @@ describe("List", () => {
 
         expect(personLists.context[1]).toStrictEqual({
           name: "insert",
-          age: 20
+          age: 20,
         });
       });
       it("call ``insert()`` should can be insert element at correct position without passing ```after``` argument", () => {
@@ -130,7 +132,7 @@ describe("List", () => {
 
         expect(personLists.context[2]).toStrictEqual({
           name: "insert",
-          age: 20
+          age: 20,
         });
         expect(personLists.context[3]).toStrictEqual({
           name: "insertTwo",
@@ -141,45 +143,47 @@ describe("List", () => {
     describe("Iteration Methods Call", () => {
       it("call `getEleemnt()`` Can be return a correct element for currennt position", () => {
         const personLists = new List<Person>();
-  
+
         personLists.append({
           name: "person1",
-          age: 20
-        })
+          age: 20,
+        });
         personLists.append({
           name: "person3",
-          age: 20
-        })
+          age: 20,
+        });
         personLists.append({
           name: "person3",
-          age: 20
-        })
-  
+          age: 20,
+        });
+
         expect(personLists.size).toStrictEqual(3);
         expect(personLists.getElement()).toStrictEqual({
           name: "person1",
-          age: 20
-        })
-      })
-    })
+          age: 20,
+        });
+      });
+    });
     describe("Utils Methods Call", () => {
       it("Call ``toString()`` should can return string represent the list", () => {
         const personLists = new List<Person>();
         personLists.append({
           name: "person1",
-          age: 20
-        })
+          age: 20,
+        });
         personLists.append({
           name: "person3",
-          age: 20
-        })
+          age: 20,
+        });
         personLists.append({
           name: "person3",
-          age: 20
-        })
+          age: 20,
+        });
 
-        expect(personLists.toString()).toStrictEqual(JSON.stringify(personLists.context));
-      })
-    })
+        expect(personLists.toString()).toStrictEqual(
+          JSON.stringify(personLists.context),
+        );
+      });
+    });
   });
 });
