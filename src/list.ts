@@ -56,6 +56,12 @@ export interface AbstractList<List> {
    * @public
    * @property
    * @returns List
+   * 
+   * @example
+   * ```
+   * 
+   * 
+   * ```
    */
   getElement: () => List;
 
@@ -169,9 +175,6 @@ export class List<T> implements AbstractList<T extends any ? T : never> {
     return this.context[this.position];
   }
 
-  /**
-   * @inheritdoc
-   */
   public insert(
     element: (T extends any ? T : never) extends any
       ? T extends any
@@ -242,7 +245,7 @@ export class List<T> implements AbstractList<T extends any ? T : never> {
   }
 
   public toString(): string {
-    return this.context.toLocaleString();
+    return JSON.stringify(this.context);
   }
 
   public get context(): T[] {
