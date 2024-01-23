@@ -24,6 +24,8 @@ jobs:
       - run: pnpm build
       - run: pnpm vitest --coverage
       - run: pnpm release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODE_COV_SECRET }}
