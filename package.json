@@ -39,20 +39,19 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "@vitest/coverage-v8": "^1.2.1",
-    "@vitest/ui": "^1.2.1",
-    "changelogen": "^0.5.5",
-    "documentation": "^14.0.2",
-    "eslint": "^8.56.0",
+    "@types/node": "^20.17.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
+    "changelogen": "^0.5.7",
+    "documentation": "^14.0.3",
+    "eslint": "^8.57.1",
     "eslint-config-unjs": "^0.2.1",
-    "jiti": "^1.21.0",
-    "prettier": "^3.2.4",
-    "typescript": "^5.3.3",
+    "jiti": "^1.21.6",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
     "unbuild": "^2.0.0",
     "vitepress": "1.0.0-rc.40",
-    "vitest": "^1.2.1",
-    "vue": "^3.4.15"
-  },
-  "packageManager": "pnpm@8.12.1"
+    "vitest": "^1.6.0",
+    "vue": "^3.5.12"
+  }
 }
